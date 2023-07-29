@@ -8,11 +8,22 @@ const UserSchema = new Schema(
     fullName: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    isAdimin: { type: Boolean },
+    isAdmin: { type: Boolean },
   },
   {
     timestamps: true,
   }
 );
+
+UserSchema.methods.toAuthJSON = function () {
+  return {
+    _id: this._id,
+    name: this.name,
+    email: this.email,
+    fullName: this.fullName,
+    phoneNumber: this.phoneNumber,
+    token: `${this.email} ${this.password}`,
+  };
+};
 
 module.exports = mongoose.model("User", UserSchema);

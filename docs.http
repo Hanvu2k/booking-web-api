@@ -1,0 +1,163 @@
+POST http://localhost:5000/api/v1/hotel/search
+Content-Type: application/json
+
+{
+      "city": "Ha Noi",
+      "maxPeople": 2,
+      "roomNumbers":2,
+      "date":["8/25/2023","8/28/2023"]
+}
+
+###
+GET  http://localhost:5000/api/v1/hotel/places
+Content-Type: application/json
+
+###
+GET  http://localhost:5000/api/v1/hotel/rating
+Content-Type: application/json
+
+
+
+
+###
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+      "name": "Han123",
+      "password": "123456",
+      "fullName": "Hanvu12",
+      "phoneNumber": "0906146645",
+      "email": "hanvu12@gmail.com"
+}
+
+
+###
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+      "email": "hanvu1@gmail.com",
+      "password": "123456"
+}
+
+###
+Get http://localhost:5000/api/v1/auth/user?token=hanvu1@gmail.com 123456
+
+
+####
+GET  http://localhost:5000/api/v1/hotel/detail?id=6311bd07f2fce6ea18172fa3
+
+
+###
+GET  http://localhost:5000/api/v1/hotel/rooms?id=6311a9c64a642f01423490bf&date="7/25/2023 to 7/28/2023"
+
+
+
+###
+
+POST http://localhost:5000/api/v1/transaction/booking?token=hanvu1@gmail.com 123456
+Content-Type: application/json
+
+{
+  "hotelId": "6311a9c64a642f01423490bf",
+  "roomIds": ["6310dd998cfecfd90b30ca28"],
+  "dateStart": "7/25/2023",
+  "dateEnd": "7/27/2023",
+  "price": 200,
+  "payment": "Credit Card"
+}
+
+
+
+###
+
+GET  http://localhost:5000/api/v1/transaction/getBooking?token=vu@gmail.com hanvu123456
+
+###
+GET  http://localhost:5000/api/v1/transaction/getAllTransaction?token=hanvu@gmail.com hanvu123456
+
+
+# hotel crud 
+
+###
+POST  http://localhost:5000/api/v1/hotel/createHotel?token=hanvu@gmail.com hanvu123456
+Content-Type: application/json
+
+{
+       "name":"Hotel1234asdfaasdfasdfasdfassdf11",
+      "type":"Hotel",
+      "city":"Da Nang",
+      "address":"Ha Noi",
+      "distance":700,
+      "photos":"asdfasdf",
+      "desc":"good hotel",
+      "rating":4,
+      "rooms": "Deluxe Room"
+}
+
+####
+
+GET   http://localhost:5000/api/v1/hotel/getHotel?token=hanvu@gmail.com hanvu123456
+
+###
+GET   http://localhost:5000/api/v1/hotel/getHotelById?token=hanvu@gmail.com hanvu123456&hotelId=6311a54a4a642f0142349086
+
+###
+
+DELETE   http://localhost:5000/api/v1/hotel/deleteHotel?token=hanvu@gmail.com 123456&hotelId=64c0d35f5e5322da8e9c1d87
+
+####
+
+PATCH    http://localhost:5000/api/v1/hotel/updateHotel?token=hanvu@gmail.com hanvu123456&hotelId=64c0d52413483c080cf5791b
+Content-Type: application/json
+
+{
+      "name":"Hotel11",
+      "type":"Hotel",
+      "city":"Da Nang",
+      "address":"Ha Noi",
+      "distance":700,
+      "photos":"asdfasdf",
+      "desc":"good hotel 2",
+      "rating":4,
+      "rooms": "1 Bed Room"
+}
+
+
+# room crud 
+###
+POST  http://localhost:5000/api/v1/room/createRoom?token=hanvu@gmail.com hanvu123456
+Content-Type: application/json
+
+{
+      "title":"Room creation 123asdfasdf1213",
+      "price": 1009,
+      "maxPeople":2,
+      "desc":"King size bed, 1 bathRroom",
+      "roomNumbers":909,
+      "hotel":"HANOI ROYAL PALACE HOTEL 2"
+}
+
+###
+GET  http://localhost:5000/api/v1/room/getRoom?token=hanvu@gmail.com hanvu123456
+
+###
+GET  http://localhost:5000/api/v1/room/getRoomById?token=hanvu@gmail.com hanvu123456&roomId=6311b3944a642f01423490df
+
+
+###
+DELETE  http://localhost:5000/api/v1/room/deleteRoom?token=hanvu@gmail.com hanvu123456&roomId=64c0ec2293b1a3ca93b00a83
+
+
+###
+PATCH   http://localhost:5000/api/v1/room/updateRoom?token=hanvu@gmail.com 123456&roomId=64c0e9bae38f551ed8b29226
+Content-Type: application/json
+
+{
+      "title":"Room creation 12",
+      "price": 100111,
+      "maxPeople":2,
+      "desc":"King size bed, 1 bathRroom",
+      "roomNumbers":[909, 101]
+}

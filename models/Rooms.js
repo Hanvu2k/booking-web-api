@@ -7,8 +7,8 @@ const RoomSchema = new Schema(
     price: { type: Number, required: true },
     maxPeople: { type: Number, required: true },
     desc: { type: String, required: true },
-    roomNumbers: { type: Number, required: true },
-    hotel_id: { type: Schema.Types.ObjectId, ref: "Hotel", required: true },
+    roomNumbers: [{ type: Number, required: true }],
+    bookings: [{ type: Object }],
   },
   {
     timestamps: true,
