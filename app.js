@@ -7,7 +7,7 @@ const { connect } = require("./config/db");
 
 const methods = ["GET", "POST", "PATCH", "DELETE"];
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: ["http://localhost:3000", "http://localhost:3001", "https://spiffy-profiterole-5b6cd7.netlify.app"],
   methods: methods,
   credentials: true,
 };
